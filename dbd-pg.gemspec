@@ -13,11 +13,11 @@ spec = Gem::Specification.new do |s|
   s.version = extract_version()
   s.summary = "Database driver for PostgreSQL"
 
-  s.files = (['src/*'] + 
+  s.files = (['src/Pg.rb'] + 
              Dir['test/**/*']).
              delete_if {|item| item.include?(".svn") }
 
-  s.require_path = '.'
+  s.require_path = 'src'
   s.autorequire = 'Pg'
 
   s.author = "Michael Neumann, Jim Weirich"
