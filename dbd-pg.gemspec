@@ -1,11 +1,19 @@
 require 'rubygems'
 
+def extract_version
+  if File.read('src/Pg.rb') =~ /\s*VERSION\s*=\s*"(\d+[.]\d+[.]\d+)"\s*/m 
+    $1
+  else 
+    raise
+  end
+end
+
 spec = Gem::Specification.new do |s|
   s.name = 'dbd-pg'
-  s.version = if File.read('Pg.rb') =~ /\s*VERSION\s*=\s*"(\d+[.]\d+[.]\d+)"\s*/m then $1 else raise end 
+  s.version = extract_version()
   s.summary = "Database driver for PostgreSQL"
 
-  s.files = (['Pg.rb'] + 
+  s.files = (['src/*'] + 
              Dir['test/**/*']).
              delete_if {|item| item.include?(".svn") }
 
