@@ -36,7 +36,7 @@ module DBI
   module DBD
     module Pg
       
-      VERSION          = "0.3.3"
+      VERSION          = "0.1.0"
       USED_DBD_VERSION = "0.2"
       
       class Driver < DBI::BaseDriver
